@@ -1,8 +1,11 @@
 from django import forms
+from django.contrib.auth import get_user_model
 from django.contrib.auth.forms import UserCreationForm
 from django.core.validators import RegexValidator
 
-from taxi.models import Driver, Car
+from taxi.models import Car
+
+Driver = get_user_model()
 
 license_validator = RegexValidator(
     regex=r"^[A-Z]{3}\d{5}$",
